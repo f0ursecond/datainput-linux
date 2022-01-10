@@ -1,13 +1,13 @@
 <?php
 include "connect.php";
-$sql=mysqli_query($conn,"select * from tb_siswa where namasiswa='$_GET[kode]'");
+$sql=mysqli_query($conn,"select * from tb_guru where namaguru='$_GET[kode]'");
 $data=mysqli_fetch_array($sql);
 
 ?>
 
 
 
-<h3> Ubah Data Siswa </h3>
+<h3> Ubah Data Guru</h3>
 
 <style>
    @import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&family=Sarabun:wght@600&display=swap");
@@ -90,36 +90,32 @@ $data=mysqli_fetch_array($sql);
 <table>
     <tr>
         
-        <td> <input type="text" name="namasiswa"
+        <td> <input type="text" name="namaguru"
         required
                         oninvalid="this.setCustomValidity('Nama harus diisi')" oninput="setCustomValidity('')"
-        value="<?php echo $data['namasiswa']; ?>"> </td>
+        value="<?php echo $data['namaguru']; ?>"> </td>
     </tr>
     <tr>
         
-        <td> <input type="number" name="nis"
+        <td> <input type="number" name="nip"
         required
-                        oninvalid="this.setCustomValidity('Nis harus diisi')" oninput="setCustomValidity('')"
-        value="<?php echo $data['nis']; ?>"> </td>
+                        oninvalid="this.setCustomValidity('Nip harus diisi')" oninput="setCustomValidity('')"
+        value="<?php echo $data['nip']; ?>"> </td>
     </tr>
     <td>
-                <select name="kelas"
+                <select name="mapel"
                 required
-                        oninvalid="this.setCustomValidity('Kelas harus dipilih')" oninput="setCustomValidity('')"
-                value="<?php echo $data['kelas']; ?>>
-                    <option selected hidden value="">Pilih kelas</option>
-                    <option value="X RPL">X RPL</option>
-                    <option value="X AKL 1">X AKL 1</option>
-                    <option value="X AKL 2">X AKL 2</option>
-                    <option value="X AKL 3">X AKL 3</option>
-                    <option value="X OTKP 1">X OTKP 1</option>
-                    <option value="X OTKP 2">X OTKP 2</option>
-                    <option value="X OTKP 3">X OTKP 3</option>
-                    <option value="X BDP 1">X BDP 1</option>
-                    <option value="X BDP 2">X BDP 2</option>
-                    <option value="X BDP 3">X BDP 3</option>
-                    <option value="XI RPL">XI RPL</option>
-                    <option value="XI AKL 1">XI AKL 1</option>
+                        oninvalid="this.setCustomValidity('Mapel harus dipilih')" oninput="setCustomValidity('')"
+                value="<?php echo $data['mapel']; ?>>
+                    <option selected hidden value="">Pilih Mapel</option>
+                    <option selected hidden value="">Pilih Mapel</option>
+                        <option value="B Indonesia">B Indonesia</option>
+                        <option value="Matematika">Matematika</option>
+                        <option value="B Inggris">B Inggris</option>
+                        <option value="Fisika">Fisika</option>
+                        <option value="Kimia">Kimia</option>
+                        <option value="Penjasorkes">Penjasorkes</option>
+                        <option value="B Jawa">B Jawa</option>
 
                 </select>
             </td>
@@ -136,10 +132,10 @@ $data=mysqli_fetch_array($sql);
 include "connect.php";
 
 if(isset($_POST['submit'])){
-mysqli_query($conn, "update tb_siswa set kelas='$_POST[kelas]',namasiswa = '$_POST[namasiswa]',nis = '$_POST[nis]' where namasiswa= '$_GET[kode]'");
+mysqli_query($conn, "update tb_guru set mapel='$_POST[mapel]',namaguru = '$_POST[namaguru]',nip = '$_POST[nip]' where namaguru= '$_GET[kode]'");
 
-echo "Data siswa telah diubah";
-echo "<meta http-equiv=refresh content=1;URL='tampil.php'>";
+echo "Data guru telah diubah";
+echo "<meta http-equiv=refresh content=1;URL='tampilguru.php'>";
 
 }
 

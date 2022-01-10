@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="tampil.css">
 </head>
 <body>
-    <h1>Data Siswa</h1>
+    <h1>Data Guru</h1>
 
     <table>
         <tr>
@@ -37,7 +37,7 @@
         $no++;
     }
     ?>
-    <a href="index.html">Kembali ke form input data</a>
+    <a href="guru.html">Kembali ke form input data</a>
     </table>
     <?php
     include "connect.php";

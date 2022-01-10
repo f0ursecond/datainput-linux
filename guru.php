@@ -36,6 +36,7 @@ if (isset($_POST['submit'])) {
                 $stmt->bind_param("sis",$namaguru, $nip, $mapel);
                 if ($stmt->execute()) {
                     echo "New record inserted sucessfully.";
+                    header("Location: tampilguru.php");
                    
                 }
                 else {
