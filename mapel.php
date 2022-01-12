@@ -23,6 +23,7 @@ if (isset($_POST['submit'])) {
                 $stmt->bind_param("s",$mapel);
                 if ($stmt->execute()) {
                     echo "New record inserted sucessfully.";
+                    header ("Location: tampilmapel.php");
                 }
                 else {
                     echo $stmt->error;
